@@ -1,0 +1,175 @@
+<template>
+  <!--上传图片-->
+  <div class="upload_img acea-row row-between borderPadding" v-if="configData && configData.isShow === 1">
+    <div class="menu-grid">
+      <div v-for="(item, index) in menuItems" :key="index" class="menu-item" @click="handleClick(item)">
+        <img :src="item.icon" class="icon" alt="icon" />
+        <p>{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+// +----------------------------------------------------------------------
+// | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2016~2025 https://www.crmeb.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+// +----------------------------------------------------------------------
+// | Author: CRMEB Team <admin@crmeb.com>
+// +----------------------------------------------------------------------
+import { mapState } from 'vuex';
+export default {
+  name: 'c_home_grid',
+  computed: {
+    ...mapState({
+      tabVal: (state) => state.admin.mobildConfig.searchConfig.data.tabVal,
+    }),
+  },
+  props: {
+    configObj: {
+      type: Object,
+    },
+    configNme: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      menuItems: [{
+          title: '景区介绍',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '景区门票',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '餐饮美食',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '周边活动',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '周边停车',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '人文江都',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '秒杀活动',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+        {
+          title: '领券中心',
+          icon: require('@/assets/imgs/fukuan.png')
+        },
+      ],
+      defaultList: [
+        {
+          name: 'a42bdcc1178e62b4694c830f028db5c0',
+          url: 'https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar',
+        },
+        {
+          name: 'bc7521e033abdd1e92222d733590f104',
+          url: 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar',
+        },
+      ],
+      defaults: {},
+      configData: {},
+      modalPic: false,
+      isChoice: '单选',
+
+      activeIndex: 0,
+    };
+  },
+  watch: {
+    configObj: {
+      handler(nVal, oVal) {
+        this.defaults = nVal;
+        this.configData = nVal[this.configNme];
+      },
+      immediate: true,
+      deep: true,
+    },
+  },
+  created() {
+    this.defaults = this.configObj;
+    this.configData = this.configObj[this.configNme];
+  },
+  methods: {
+    bindDelete() {
+      this.configData.url = '';
+    },
+    // 点击图文封面
+    modalPicTap() {
+      const _this = this;
+      this.$modalUpload(function (img) {
+        if (!img) return;
+        _this.configData.url = img[0].sattDir;
+      });
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.header {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 9px;
+}
+
+.title {
+  margin: 0 0 5px;
+  padding-bottom: 3px;
+  /*border-bottom:1px solid rgba(0,0,0,0.05);*/
+  font-size: 12px;
+  color: #bbbbbb;
+}
+
+.box {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px 4px 4px 4px;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+  // background: #d5d5d5;
+
+  .iconfont-diy,
+  .iconfont {
+    position: absolute;
+    color: #999;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 64px;
+  height: 64px;
+  border-radius: 4px 4px 4px 4px;
+  opacity: 1;
+  border: 1px solid #eeeeee;
+  font-size: 12px;
+  color: #cccccc;
+
+  .iconfont {
+    font-size: 16px;
+  }
+}
+</style>

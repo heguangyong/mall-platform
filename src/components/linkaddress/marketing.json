@@ -1,0 +1,80 @@
+{
+  "status": 200,
+  "msg": "ok",
+  "data": {
+    "list": [
+      {
+        "id": 25,
+        "cate_id": 6,
+        "type": 0,
+        "name": "我的优惠券",
+        "url": "/pages/users/user_coupon/index",
+        "param": " ",
+        "example": "/pages/users/user_coupon/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 28,
+        "cate_id": 6,
+        "type": 0,
+        "name": "秒杀列表",
+        "url": "/pages/activity/goods_seckill/index",
+        "param": " ",
+        "example": "/pages/activity/goods_seckill/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 29,
+        "cate_id": 6,
+        "type": 0,
+        "name": "直播列表",
+        "url": "/pages/activity/liveBroadcast/index",
+        "param": " ",
+        "example": "/pages/activity/liveBroadcast/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 27,
+        "cate_id": 6,
+        "type": 4,
+        "name": "积分商城",
+        "url": "/pages/activity/points_mall/index",
+        "param": " ",
+        "example": "/pages/activity/points_mall/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 26,
+        "cate_id": 6,
+        "type": 4,
+        "name": "积分详情",
+        "url": "/pages/merchant/user_integral/index",
+        "param": " ",
+        "example": "/pages/merchant/user_integral/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 30,
+        "cate_id": 6,
+        "type": 8,
+        "name": "拼团列表",
+        "url": "/pages/activity/goods_group/index",
+        "param": " ",
+        "example": "/pages/activity/goods_group/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      }
+    ]
+  }
+}
